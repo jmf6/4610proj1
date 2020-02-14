@@ -12,19 +12,19 @@ Page::Page(int page, int frame){
 }
 
 void Page::setPageNum(int page){
-   this.pageNum = page;
+   this->pageNum = page;
 }
 
 void Page::setFrameNum(int frame){
-   this.frameNum = frame;
+   this->frameNum = frame;
 }
 
 int Page::getPageNum(){
-   return this.pageNum;
+   return this->pageNum;
 }
 
 int Page::getFrameNum(){
-   return this.frameNum;
+   return this->frameNum;
 }
 
 std::string Page::toString(){
