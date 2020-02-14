@@ -8,12 +8,12 @@ class Page{
       int frameNum;
       void setPageNum(int page);
       void setFrameNum(int frame);
-      int getPageNum();
-      int getFrameNum();
       
    public:
       Page();
       Page(int page, int frame);
+      int getPageNum();
+      int getFrameNum();
       std::string toString();
 };
 

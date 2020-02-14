@@ -77,5 +77,13 @@ int main(){
    offset = offset - 1;
 
    cout << "Starting from an offset of 0, the " << offset + 1 << "nd/st/th location will be at an offset of " << offset << "." << endl;
+   cout << "-------------------------------------------------------------------------------------------------------------" << endl;
 
+   cout << "From the start of the memory map: " << endl;
+   cout << "This page is in Frame " << pages[b - 1].getFrameNum() << ", which is the " << pages[b - 1].getFrameNum() + 1 << "st/nd/th by count as we start from frame # 0" << endl;
+   cout << "Number of loccations covered from start of the map in the first " << pages[b - 1].getFrameNum() << " frames = " << pages[b - 1].getFrameNum() << " x " << pageSize << " = " << pages[b - 1].getFrameNum() * pageSize << " locations" << endl;
+   cout << "The last " << offset + 1 << " locations are in Frame # " << pages[b - 1].getFrameNum() << ". Total distance from start = " << pages[b - 1].getFrameNum() * pageSize << " + " << offset + 1 << " = " << pages[b - 1].getFrameNum() * pageSize + offset + 1 << " locations." << endl;
+   cout << "So, the " << memory << "st/nd/th location by the logical memory is " << pages[b - 1].getFrameNum() * pageSize + offset + 1 << "nd/st/th location in the physical memory, as per the given PMT." << endl;
+
+   return 0;
 }
