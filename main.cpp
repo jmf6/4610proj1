@@ -11,7 +11,7 @@ int main(){
    int memory = 0;
    int offset = 0;
    
-   cout << "Enter the number of lacations that the program spans: " << endl;
+   cout << "Enter the number of locations that the program spans: " << endl;
    cin >> processSize;
    
    cout << "Enter the page/frame size: " << endl;
@@ -35,7 +35,8 @@ int main(){
    
    cout << "     The PMT is: " << endl;
    cout << endl;
-   cout << "---------------------" << endl;
+   cout << "   Page#      Frame#" << endl;
+   cout << "-------------------------" << endl;
    
    for(int i = 0; i < pageTable; i++){
       cout << pages[i].toString();
@@ -48,12 +49,12 @@ int main(){
    cout << memory << " logical memory location will be on page:" << endl;
    cout << "= " << memory << " / page size" << endl;
    cout << "= " << memory << " / " << pageSize << endl;
-   double a = memory / pageSize;
+   double a = double(memory) / pageSize;
    cout << "= " << a << endl;
    int b = int(a) + 1;
    cout << "= " <<  b << "(bump up to the next integer)" << endl;
 
-   cout << "Counting from page # 0, the " << b << "nd/st/th page will be page " << b - 1 << " (";
+   cout << "Counting from page # 0, the " << b << "nd/st/th page will be page " << b - 1 << " (#";
 
    for(int i = 0; i < b; i++){
 	if(i == b - 1){
@@ -65,14 +66,14 @@ int main(){
    }
 
    cout << "Number of locations until before the last page: " << endl;
-   cout << pageSize << " x " << b - 1 << endl;
-   cout << pageSize * (b - 1) << " locations" << endl;
+   cout << "= " << pageSize << " x " << b - 1 << endl;
+   cout << "= " << pageSize * (b - 1) << " locations" << endl;
 
    cout << "Number of locations in the last page: " << endl;
-   cout << memory << " - " << pageSize * (b - 1) << endl;
+   cout << "= " << memory << " - " << pageSize * (b - 1) << endl;
 
    offset = memory - (pageSize * (b - 1));
-   cout << offset << " locations" << endl;
+   cout << "= " << offset << " locations" << endl;
 
    offset = offset - 1;
 
@@ -81,7 +82,7 @@ int main(){
 
    cout << "From the start of the memory map: " << endl;
    cout << "This page is in Frame " << pages[b - 1].getFrameNum() << ", which is the " << pages[b - 1].getFrameNum() + 1 << "st/nd/th by count as we start from frame # 0" << endl;
-   cout << "Number of loccations covered from start of the map in the first " << pages[b - 1].getFrameNum() << " frames = " << pages[b - 1].getFrameNum() << " x " << pageSize << " = " << pages[b - 1].getFrameNum() * pageSize << " locations" << endl;
+   cout << "Number of locations covered from start of the map in the first " << pages[b - 1].getFrameNum() << " frames = " << pages[b - 1].getFrameNum() << " x " << pageSize << " = " << pages[b - 1].getFrameNum() * pageSize << " locations" << endl;
    cout << "The last " << offset + 1 << " locations are in Frame # " << pages[b - 1].getFrameNum() << ". Total distance from start = " << pages[b - 1].getFrameNum() * pageSize << " + " << offset + 1 << " = " << pages[b - 1].getFrameNum() * pageSize + offset + 1 << " locations." << endl;
    cout << "So, the " << memory << "st/nd/th location by the logical memory is " << pages[b - 1].getFrameNum() * pageSize + offset + 1 << "nd/st/th location in the physical memory, as per the given PMT." << endl;
 

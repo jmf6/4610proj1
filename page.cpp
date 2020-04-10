@@ -28,6 +28,6 @@ int Page::getFrameNum(){
 }
 
 std::string Page::toString(){
-   std::string temp = getPageNum() + "          " + getFrameNum();
+   std::string temp = "     " + std::to_string(getPageNum()) + "          " + std::to_string(getFrameNum());
    return temp;
 }
