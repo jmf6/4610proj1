@@ -1,7 +1,7 @@
 #include "page.hpp"
 #include <iostream>
 #include <vector>
-//testing Jenkins CI
+//testing Jenkins
 using namespace std;
 
 int main(){
