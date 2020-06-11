@@ -1,10 +1,11 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build'){
-      steps {
-        make clean
-      }
+    agent any
+    stages {
+        stage('build') {
+            steps {
+                echo 'building..'
+                bat 'batchfile.cmd'
+            }
+        }
     }
-  }
 }
